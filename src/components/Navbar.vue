@@ -18,7 +18,7 @@ const props = defineProps(["toggle"]);
   <nav>
     <div class="fragments">
       <Bars3Icon class="icon" />
-      <form @submit.prevent="">
+      <form @submit.prevent="" class="big-search">
         <MagnifyingGlassIcon class="icon" />
         <input
           type="text"
@@ -30,12 +30,13 @@ const props = defineProps(["toggle"]);
       </form>
     </div>
     <div class="fragments">
+      <MagnifyingGlassIcon class="icon search-icon" />
       <SquaresPlusIcon class="icon" />
       <ArrowsPointingOutIcon class="icon" @click="toggle" />
       <span class="bell">
         <BellIcon class="icon" />
         <p class="notif">6</p>
-    </span>
+      </span>
       <div class="acc-details">
         <img src="../assets/images/profilepic.webp" alt="" class="acc-pic" />
         <span>Henry</span>
@@ -70,7 +71,7 @@ nav {
   gap: 1rem;
   align-items: center;
 }
-.fragments form {
+.fragments .big-search {
   display: flex;
   align-items: center;
   height: 3rem;
@@ -81,10 +82,10 @@ nav {
   padding: 0 1rem;
   gap: 1rem;
 }
-.fragments form .icon {
+.fragments .big-search .icon {
   height: 1.5rem;
 }
-.fragments form .search {
+.fragments .big-search .search {
   font-size: 1.5rem;
   background-color: transparent;
   border: none;
@@ -94,25 +95,25 @@ nav {
   height: 1rem;
 }
 .acc-details {
-    cursor: pointer;
+  cursor: pointer;
 }
 .bell {
-    position: relative;
+  position: relative;
 }
 .bell .icon {
-    height: 2rem;
+  height: 2rem;
 }
 .notif {
-    position: absolute;
-    top: -0.75rem;
-    right: 0;
-    height: 1.5rem;
-    width: 1.5rem;
-    background: teal;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: -0.75rem;
+  right: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  background: teal;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .bell .icon {
   animation: swing 2s infinite;
@@ -160,6 +161,17 @@ nav {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+.search-icon {
+  display: none;
+}
+@media screen and (max-width: 780px) {
+  .big-search {
+    display: none !important;
+  }
+  .search-icon {
+    display: initial;
   }
 }
 </style>
