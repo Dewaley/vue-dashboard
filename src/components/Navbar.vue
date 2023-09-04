@@ -32,20 +32,23 @@ const props = defineProps(["toggle"]);
     <div class="fragments">
       <SquaresPlusIcon class="icon" />
       <ArrowsPointingOutIcon class="icon" @click="toggle" />
-      <span class="bell"><BellIcon class="icon" /></span>
+      <span class="bell">
+        <BellIcon class="icon" />
+        <p class="notif">6</p>
+    </span>
       <div class="acc-details">
         <img src="../assets/images/profilepic.webp" alt="" class="acc-pic" />
         <span>Henry</span>
         <ChevronDownIcon class="icon" />
       </div>
-      <Cog6ToothIcon class="icon" />
+      <Cog6ToothIcon class="icon setting" />
     </div>
   </nav>
 </template>
 
 <style scoped>
 .icon {
-  height: 2.5rem;
+  height: 2rem;
   cursor: pointer;
 }
 nav {
@@ -92,5 +95,71 @@ nav {
 }
 .acc-details {
     cursor: pointer;
+}
+.bell {
+    position: relative;
+}
+.bell .icon {
+    height: 2rem;
+}
+.notif {
+    position: absolute;
+    top: -0.75rem;
+    right: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: teal;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bell .icon {
+  animation: swing 2s infinite;
+}
+@keyframes swing {
+  0% {
+    scale: 1.1;
+    transform: rotate(0deg);
+  }
+  12.5% {
+    scale: 1.1;
+    transform: rotate(15deg);
+  }
+  25% {
+    scale: 1.1;
+    transform: rotate(-15deg);
+  }
+  37.5% {
+    scale: 1.1;
+    transform: rotate(15deg);
+  }
+  50% {
+    scale: 1.1;
+    transform: rotate(-15deg);
+  }
+  62.5% {
+    scale: 1.1;
+    transform: rotate(15deg);
+  }
+  75% {
+    scale: 1.1;
+    transform: rotate(-15deg);
+  }
+  100% {
+    scale: 1;
+    transform: rotate(0deg);
+  }
+}
+.setting {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
