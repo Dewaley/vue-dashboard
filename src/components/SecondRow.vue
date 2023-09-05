@@ -43,12 +43,12 @@ import {
       </div>
       <div class="fragment">
         <div class="top">
-          <ClipboardDocumentListIcon class="icon" />
-          <h3>Orders</h3>
+          <ArchiveBoxArrowDownIcon class="icon" />
+          <h3>Revenue</h3>
         </div>
         <div class="bottom">
           <div class="record-number">
-            <h3>1,545</h3>
+            <h3>$ 28,452</h3>
             <ChevronUpIcon class="icon" />
           </div>
           <div class="record-details">
@@ -59,16 +59,16 @@ import {
       </div>
       <div class="fragment">
         <div class="top">
-          <ClipboardDocumentListIcon class="icon" />
-          <h3>Orders</h3>
+          <TagIcon class="icon" />
+          <h3>Average price</h3>
         </div>
         <div class="bottom">
           <div class="record-number">
-            <h3>1,545</h3>
+            <h3>$ 16.70</h3>
             <ChevronUpIcon class="icon" />
           </div>
           <div class="record-details">
-            <span class="stat">+ 0.3%</span>
+            <span class="stat orange">0%</span>
             <span class="detail">From previous period</span>
           </div>
         </div>
@@ -134,6 +134,7 @@ li {
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
+  gap: 2rem;
 }
 .analysis .fragment .top {
   display: flex;
@@ -178,6 +179,10 @@ li {
   color: var(--green-text);
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
+}
+.analysis .fragment .bottom .record-details .stat.orange {
+  background-color: var(--orange-bg);
+  color: var(--orange-text);
 }
 .analysis .fragment .bottom .record-details .detail {
   white-space: nowrap;

@@ -5,7 +5,7 @@ import SecondRow from "../components/SecondRow.vue";
 
 <template>
   <main>
-    <!-- <FirstRow /> -->
+    <FirstRow />
     <SecondRow />
   </main>
 </template>
@@ -14,5 +14,8 @@ import SecondRow from "../components/SecondRow.vue";
 main {
   color: var(--dark-text);
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 </style>
