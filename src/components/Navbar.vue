@@ -174,4 +174,9 @@ nav {
     display: initial;
   }
 }
+@media screen and (max-width:360px) {
+  .acc-details span, .acc-details .icon {
+    display: none;
+  }
+}
 </style>

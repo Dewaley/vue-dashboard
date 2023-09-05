@@ -1,10 +1,12 @@
 <script setup>
-import FirstRow  from "../components/FirstRow.vue";
+import FirstRow from "../components/FirstRow.vue";
+import SecondRow from "../components/SecondRow.vue";
 </script>
 
 <template>
   <main>
     <!-- <FirstRow /> -->
+    <SecondRow />
   </main>
 </template>
 

@@ -3,9 +3,13 @@
   --dark-text: rgba(166, 176, 207, 1);
   --bright-text: #f6f6f6;
   --nav-bg: #262b3c;
-  --card-bg: #2A3042;
-  --bright-blue: #5570E6;
+  --card-bg: #2a3042;
+  --bright-blue: #5570e6;
   --dark-blue: rgb(86, 90, 134);
+  --mid-blue: #2e3962;
+  --blue-text: #3858da;
+  --green-text: #34aa6e;
+  --green-bg: #2b4a50;
 }
 
 * {
@@ -28,7 +32,8 @@ a {
   text-decoration: none;
 }
 
-button, input {
+button,
+input {
   border: none;
   outline: none;
 }
