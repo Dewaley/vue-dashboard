@@ -4,6 +4,8 @@
   --bright-text: #f6f6f6;
   --nav-bg: #262b3c;
   --card-bg: #2A3042;
+  --bright-blue: #5570E6;
+  --dark-blue: rgb(86, 90, 134);
 }
 
 * {
@@ -24,4 +26,9 @@ body {
 
 a {
   text-decoration: none;
+}
+
+button, input {
+  border: none;
+  outline: none;
 }

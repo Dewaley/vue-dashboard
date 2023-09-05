@@ -1,9 +1,16 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import FirstRow  from "../components/FirstRow.vue";
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <!-- <FirstRow /> -->
   </main>
 </template>
+
+<style scoped>
+main {
+  color: var(--dark-text);
+  padding: 1.5rem;
+}
+</style>

@@ -166,7 +166,7 @@ nav {
 .search-icon {
   display: none;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 760px) {
   .big-search {
     display: none !important;
   }
