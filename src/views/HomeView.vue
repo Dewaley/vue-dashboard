@@ -1,12 +1,16 @@
 <script setup>
 import FirstRow from "../components/FirstRow.vue";
 import SecondRow from "../components/SecondRow.vue";
+import ThirdRow from "../components/ThirdRow.vue";
+import Charts from "../components/Charts.vue";
 </script>
 
 <template>
   <main>
-    <FirstRow />
+    <!-- <FirstRow />
     <SecondRow />
+    <ThirdRow /> -->
+    <Charts />
   </main>
 </template>
 

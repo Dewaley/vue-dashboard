@@ -10,8 +10,9 @@
   --blue-text: #3858da;
   --green-text: #34aa6e;
   --green-bg: #2b4a50;
-  --orange-bg: #4D4744;
-  --orange-text: #ECB24C;
+  --orange-bg: #4d4744;
+  --orange-text: #ecb24c;
+  --divide-bg: #32394E;
 }
 
 * {
@@ -38,4 +39,22 @@ button,
 input {
   border: none;
   outline: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+*::-webkit-scrollbar {
+  width: .5rem;
+}
+ 
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: var(--dark-text);
+  outline: 1px solid slategrey;
+  border-radius: 5px;
 }
