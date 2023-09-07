@@ -84,17 +84,17 @@ li {
 .row-container {
   display: flex;
   gap: 2rem;
-  width: calc(100vw - 3rem);
+  /* width: calc(100vw - 3rem); */
 }
 .welcome-box {
   background-color: var(--mid-blue);
   padding: 2rem 2rem 0;
   display: flex;
   height: 18rem;
-  width: 30%;
   border-radius: 5px;
   color: var(--blue-text);
   overflow: hidden;
+  width: 30%;
 }
 .welcome-box .fragment {
   width: 50%;
@@ -123,10 +123,13 @@ li {
   /* max-width: 70%; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
   height: 18rem;
+  gap: 2rem;
   /* overflow: hidden; */
 }
+/* .closed.main-layout .analysis {
+  width: 72.5%;
+} */
 .analysis .fragment {
   background-color: var(--card-bg);
   border-radius: 5px;
@@ -202,6 +205,7 @@ li {
 @media screen and (max-width: 760px) {
   .analysis {
     grid-template-columns: 1fr;
+    height: auto;
   }
 }
 @media screen and (max-width: 360px) {

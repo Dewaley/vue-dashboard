@@ -21,5 +21,9 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
+  height: calc(100vh - 7rem);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 </style>

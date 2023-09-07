@@ -8,16 +8,21 @@ import {
   Cog6ToothIcon,
   ChevronDownIcon,
 } from "@heroicons/vue/24/outline";
-// import { profilePic } from "../assets/images/profilepic.webp";
+import { useHamburgerStore } from "../components/stores/HamburgerStore";
+import { storeToRefs } from "pinia";
 import { defineProps } from "vue";
 
 const props = defineProps(["toggle"]);
+
+const store = useHamburgerStore();
+const { toggleHamburger } = store;
+const { hamburger } = storeToRefs(store);
 </script>
 
 <template>
   <nav>
     <div class="fragments">
-      <Bars3Icon class="icon" />
+      <Bars3Icon class="icon" @click="toggleHamburger" />
       <form @submit.prevent="" class="big-search">
         <MagnifyingGlassIcon class="icon" />
         <input
@@ -174,8 +179,9 @@ nav {
     display: initial;
   }
 }
-@media screen and (max-width:360px) {
-  .acc-details span, .acc-details .icon {
+@media screen and (max-width: 360px) {
+  .acc-details span,
+  .acc-details .icon {
     display: none;
   }
 }
