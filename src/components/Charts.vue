@@ -52,7 +52,6 @@ const series1 = [
   {
     name: "sales",
     data: [30, 40, 35, 50, 49, 60, 70, 91, 120, 102, 90, 110],
-    show: false,
     labels: {
       style: {
         colors: "white",
@@ -60,13 +59,25 @@ const series1 = [
     },
   },
 ];
+const series2 = [44, 55, 41];
+const donutOptions = {
+  chart: {
+    type: "donut",
+    width: "100%",
+  },
+  legend: {
+    show: false,
+  },
+  colors: ["#5570E6", "#4CC390", "#F46A6A"],
+  labels: ["Product A", "Product B", "Product C"],
+};
 </script>
 
 <template>
   <div class="main">
     <div class="card area-graph-container">
       <div class="month">
-        <h2>Earning {{ selected }}</h2>
+        <h2>Earning</h2>
         <p>This month</p>
         <div class="fin-deets">
           <h1 class="money">$2100.35</h1>
@@ -89,7 +100,39 @@ const series1 = [
         ></apexchart>
       </div>
     </div>
-    <div class="card donut-container"></div>
+    <div class="card donut-container">
+      <h1>Sales Analytics</h1>
+      <div class="pie-container">
+        <apexchart
+          type="donut"
+          :options="donutOptions"
+          :series="series2"
+        ></apexchart>
+      </div>
+      <div class="pie-deets">
+        <div class="deet">
+          <div>
+            <span class="color"></span>
+            <p>Product A</p>
+          </div>
+          <h4>$2100</h4>
+        </div>
+        <div class="deet">
+          <div>
+            <span class="color"></span>
+            <p>Product B</p>
+          </div>
+          <h4>$1326</h4>
+        </div>
+        <div class="deet">
+          <div>
+            <span class="color"></span>
+            <p>Product C</p>
+          </div>
+          <h4>$854</h4>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -156,5 +199,75 @@ const series1 = [
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 2rem;
+}
+.donut-container h1 {
+  width: 100%;
+  color: var(--bright-text);
+}
+.donut-container .pie-deets {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  justify-self: center;
+}
+.donut-container .pie-deets .deet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.donut-container .pie-deets .deet div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.donut-container .pie-deets .deet p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 6rem;
+}
+.donut-container .pie-deets .deet div .color {
+  display: flex;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: red;
+}
+.donut-container .pie-deets .deet h4 {
+  font-size: 1.75rem;
+  color: var(--bright-text);
+}
+@media screen and (max-width: 1024px) {
+  .main {
+    flex-direction: column;
+  }
+  .area-graph-container,
+  .donut-container {
+    width: 100%;
+  }
+  .donut-container {
+    align-items: center;
+  }
+  .donut-container .pie-container {
+    width: 50%;
+    min-width: 250px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .area-graph-container {
+    flex-direction: column;
+  }
+  .area-graph-container .graph-container {
+    width: 100%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 375px) {
+  .donut-container .pie-deets .deet p {
+    width: 4rem;
+  }
 }
 </style>
