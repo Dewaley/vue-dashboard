@@ -1,7 +1,8 @@
 <script setup>
 import { ChevronRightIcon } from "@heroicons/vue/24/outline";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
+const selected = ref("2023");
 const chartOptions = {
   chart: {
     id: "dashboard-sales-chart",
@@ -48,17 +49,61 @@ const chartOptions = {
     },
   },
 };
-const series1 = [
-  {
-    name: "sales",
-    data: [30, 40, 35, 50, 49, 60, 70, 91, 120, 102, 90, 110],
-    labels: {
-      style: {
-        colors: "white",
+const series1 = computed(() => {
+  if (selected.value === "2023") {
+    const newSeries = [
+      {
+        name: "sales",
+        data: [30, 40, 35, 50, 49, 60, 70, 91, 120, 102, 90, 110],
+        labels: {
+          style: {
+            colors: "white",
+          },
+        },
       },
-    },
-  },
-];
+    ];
+    return newSeries;
+  } else if (selected.value === "2022") {
+    const newSeries = [
+      {
+        name: "sales",
+        data: [40, 35, 50, 49, 60, 70, 91, 120, 102, 90, 110, 90],
+        labels: {
+          style: {
+            colors: "white",
+          },
+        },
+      },
+    ];
+    return newSeries;
+  } else if (selected.value === "2021") {
+    const newSeries = [
+      {
+        name: "sales",
+        data: [35, 50, 49, 60, 70, 91, 120, 102, 90, 110, 90, 97],
+        labels: {
+          style: {
+            colors: "white",
+          },
+        },
+      },
+    ];
+    return newSeries;
+  } else if (selected.value === "2020") {
+    const newSeries = [
+      {
+        name: "sales",
+        data: [50, 49, 60, 70, 91, 120, 102, 90, 110, 90.40,126],
+        labels: {
+          style: {
+            colors: "white",
+          },
+        },
+      },
+    ];
+    return newSeries;
+  }
+});
 const series2 = [44, 55, 41];
 const donutOptions = {
   chart: {
@@ -98,6 +143,15 @@ const donutOptions = {
           :options="chartOptions"
           :series="series1"
         ></apexchart>
+      </div>
+      <div class="selectables">
+        <select v-model="selected" @change="updateSeries">
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+        </select>
+        <p>Years</p>
       </div>
     </div>
     <div class="card donut-container">
@@ -151,6 +205,7 @@ const donutOptions = {
   width: 70%;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .month {
   display: flex;
@@ -239,6 +294,34 @@ const donutOptions = {
 .donut-container .pie-deets .deet h4 {
   font-size: 1.75rem;
   color: var(--bright-text);
+}
+.area-graph-container .selectables {
+  position: absolute;
+  right: 2rem;
+  border: 2px solid var(--divide-bg);
+  border-radius: 5px;
+  display: flex;
+}
+.selectables select  {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  color: var(--bright-text);
+  cursor: pointer;
+}
+.selectables select option {
+  background: var(--main-bg);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.selectables p {
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  background: var(--main-bg);
+  margin-left: .5rem;
 }
 @media screen and (max-width: 1024px) {
   .main {
