@@ -7,10 +7,10 @@ import Charts from "../components/Charts.vue";
 
 <template>
   <main>
-    <!-- <FirstRow />
+    <FirstRow />
     <SecondRow />
-    <ThirdRow /> -->
     <Charts />
+    <ThirdRow />
   </main>
 </template>
 
