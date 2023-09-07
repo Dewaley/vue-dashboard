@@ -36,8 +36,8 @@ const setState = (a) => {
             </div>
           </div>
           <div class="fragment">
-            <PencilSquareIcon class="icon" />
-            <TrashIcon class="icon" />
+            <PencilSquareIcon class="icon edit" />
+            <TrashIcon class="icon del" />
           </div>
         </li>
         <li>
@@ -49,8 +49,8 @@ const setState = (a) => {
             </div>
           </div>
           <div class="fragment">
-            <PencilSquareIcon class="icon" />
-            <TrashIcon class="icon" />
+            <PencilSquareIcon class="icon edit" />
+            <TrashIcon class="icon del" />
           </div>
         </li>
         <li>
@@ -62,8 +62,8 @@ const setState = (a) => {
             </div>
           </div>
           <div class="fragment">
-            <PencilSquareIcon class="icon" />
-            <TrashIcon class="icon" />
+            <PencilSquareIcon class="icon edit" />
+            <TrashIcon class="icon del" />
           </div>
         </li>
         <li>
@@ -75,8 +75,8 @@ const setState = (a) => {
             </div>
           </div>
           <div class="fragment">
-            <PencilSquareIcon class="icon" />
-            <TrashIcon class="icon" />
+            <PencilSquareIcon class="icon edit" />
+            <TrashIcon class="icon del" />
           </div>
         </li>
         <li>
@@ -88,8 +88,8 @@ const setState = (a) => {
             </div>
           </div>
           <div class="fragment">
-            <PencilSquareIcon class="icon" />
-            <TrashIcon class="icon" />
+            <PencilSquareIcon class="icon edit" />
+            <TrashIcon class="icon del" />
           </div>
         </li>
         <li>
@@ -101,8 +101,8 @@ const setState = (a) => {
             </div>
           </div>
           <div class="fragment">
-            <PencilSquareIcon class="icon" />
-            <TrashIcon class="icon" />
+            <PencilSquareIcon class="icon edit" />
+            <TrashIcon class="icon del" />
           </div>
         </li>
         <li>
@@ -114,8 +114,8 @@ const setState = (a) => {
             </div>
           </div>
           <div class="fragment">
-            <PencilSquareIcon class="icon" />
-            <TrashIcon class="icon" />
+            <PencilSquareIcon class="icon edit" />
+            <TrashIcon class="icon del" />
           </div>
         </li>
       </ul>
@@ -247,6 +247,7 @@ td .icon {
 }
 .tasks .selectables {
   display: flex;
+  margin-top: 1rem;
 }
 .tasks ul {
   width: 100%;
@@ -254,6 +255,7 @@ td .icon {
   flex-direction: column;
   height: 30rem;
   overflow-y: scroll;
+  margin-top: 1rem;
 }
 .tasks ul li {
   display: flex;
@@ -269,6 +271,14 @@ td .icon {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
+}
+.tasks ul li .fragment .edit {
+  color: var(--green-text);
+  cursor: pointer;
+}
+.tasks ul li .fragment .del {
+  color: red;
+  cursor: pointer;
 }
 .tasks .selectables {
   background-color: var(--divide-bg);
@@ -296,6 +306,7 @@ td .icon {
   border-radius: 5px;
   background-color: var(--bright-blue);
   color: var(--bright-text);
+  margin-top: 2rem;
 }
 .tasks button:hover {
   background-color: var(--dark-blue);

@@ -10,9 +10,12 @@ const { toggle } = useFullscreen();
 </script>
 
 <template>
-  <div ref="el">
-    <Navbar :toggle="toggle" />
-    <RouterView />
+  <div ref="el" class="all">
+    
+    <div>
+      <Navbar :toggle="toggle" />
+      <RouterView />
+    </div>
   </div>
 </template>
 
