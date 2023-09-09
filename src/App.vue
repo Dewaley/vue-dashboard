@@ -38,4 +38,9 @@ const { hamburger } = storeToRefs(store);
 .closed.main-layout {
   width: calc(100% - 7rem);
 }
+@media screen and (max-width: 768px) {
+  .closed.main-layout {
+    width: 100%;
+  }
+}
 </style>

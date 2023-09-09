@@ -9,6 +9,7 @@ import {
   CalendarDaysIcon,
   DocumentIcon,
   RocketLaunchIcon,
+  XMarkIcon,
 } from "@heroicons/vue/24/outline";
 import { useHamburgerStore } from "../components/stores/HamburgerStore";
 import { storeToRefs } from "pinia";
@@ -18,16 +19,19 @@ import { ref } from "vue";
 const store = useHamburgerStore();
 const sidebar = ref(null);
 const { hamburger } = storeToRefs(store);
+const { toggleHamburger } = store;
 
 onClickOutside(sidebar, (e) => {
   if (hamburger) {
     hamburger.value = true;
   }
 });
+const disabled = true;
 </script>
 
 <template>
   <div class="sidebar" :class="{ closed: hamburger }" ref="sidebar">
+    <!-- <XMarkIcon class="close" /> -->
     <div class="logo">
       <img
         v-if="!hamburger"
@@ -36,9 +40,10 @@ onClickOutside(sidebar, (e) => {
         class="big-logo"
       />
       <img v-else src="../assets/images/logo.svg" alt="" class="small-logo" />
+      <XMarkIcon class="close" @click="toggleHamburger" />
     </div>
     <nav class="deets">
-      <h3>APPS {{ hamburger }}</h3>
+      <h3>APPS</h3>
       <ul>
         <li>
           <router-link to="">
@@ -47,7 +52,7 @@ onClickOutside(sidebar, (e) => {
           </router-link>
         </li>
         <li>
-          <router-link to="">
+          <router-link to="" :disabled="disabled">
             <TagIcon class="icon" />
             Buy/Sell
           </router-link>
@@ -159,9 +164,7 @@ onClickOutside(sidebar, (e) => {
 
 <style scoped>
 .sidebar {
-  width: 30rem;
-  position: fixed;
-  top: 0;
+  min-width: 30rem;
   height: 100dvh;
   overflow-y: scroll;
   overflow-x: visible;
@@ -171,13 +174,17 @@ onClickOutside(sidebar, (e) => {
   flex-direction: column;
   gap: 3rem;
   z-index: 1000;
+  transition: min-width 100ms linear;
+  /* opacity: 0; */
 }
 .logo {
   min-height: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* justify-content: space-between; */
   width: 100%;
+  padding: 0rem 2rem;
 }
 .closed-deets {
   display: none;
@@ -221,12 +228,13 @@ ul a {
   transition: 0.35s color ease-in;
 }
 .closed.sidebar {
-  width: 7rem;
+  min-width: 7rem;
   height: 100dvh;
   gap: 0rem;
   position: relative;
   overflow-y: scroll;
   overflow-x: visible !important;
+  transition: min-width 100ms linear;
 }
 .closed.sidebar::-webkit-scrollbar {
   display: none;
@@ -290,4 +298,33 @@ ul a {
   width: 15rem;
   height: 6rem;
 } */
+.close {
+  /* position: absolute;
+  top: 0;
+  left: 22rem; */
+  display: none;
+  height: 3rem;
+}
+.router-link-exact-active {
+  color: var(--bright-text);
+}
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 30rem;
+    transition: max-width 200ms linear;
+  }
+  .closed.sidebar {
+    max-width: 0rem;
+    transition: max-width 200ms linear;
+  }
+  .logo {
+    justify-content: space-between;
+  }
+  .logo .close {
+    display: block;
+  }
+}
 </style>

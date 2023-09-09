@@ -93,7 +93,7 @@ const series1 = computed(() => {
     const newSeries = [
       {
         name: "sales",
-        data: [50, 49, 60, 70, 91, 120, 102, 90, 110, 90.40,126],
+        data: [50, 49, 60, 70, 91, 120, 102, 90, 110, 90.4, 126],
         labels: {
           style: {
             colors: "white",
@@ -194,6 +194,12 @@ const donutOptions = {
 .main {
   display: flex;
   gap: 2rem;
+  flex-direction: column;
+}
+.closed.main-layout .main {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
 }
 .card {
   background-color: var(--card-bg);
@@ -202,6 +208,12 @@ const donutOptions = {
   /* height: 40rem; */
 }
 .area-graph-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.closed.main-layout .area-graph-container {
   width: 70%;
   display: flex;
   justify-content: space-between;
@@ -250,11 +262,24 @@ const donutOptions = {
   color: var(--bright-text) !important;
 }
 .donut-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+}
+.closed.main-layout .donut-container {
+  align-items: center;
   width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
+}
+.donut-container .pie-container {
+  width: 50%;
+  min-width: 250px;
 }
 .donut-container h1 {
   width: 100%;
@@ -302,7 +327,7 @@ const donutOptions = {
   border-radius: 5px;
   display: flex;
 }
-.selectables select  {
+.selectables select {
   background: transparent;
   border: none;
   outline: none;
@@ -317,19 +342,19 @@ const donutOptions = {
   cursor: pointer;
 }
 .selectables p {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
   background: var(--main-bg);
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 @media screen and (max-width: 1024px) {
   .main {
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .area-graph-container,
   .donut-container {
-    width: 100%;
+    width: 100% !important;
   }
   .donut-container {
     align-items: center;

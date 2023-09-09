@@ -84,9 +84,13 @@ li {
 .row-container {
   display: flex;
   gap: 2rem;
+  flex-direction: column;
   /* width: calc(100vw - 3rem); */
 }
-.welcome-box {
+.closed.main-layout .row-container {
+  flex-direction: row;
+}
+.closed.main-layout .welcome-box {
   background-color: var(--mid-blue);
   padding: 2rem 2rem 0;
   display: flex;
@@ -96,23 +100,48 @@ li {
   overflow: hidden;
   width: 30%;
 }
+.welcome-box {
+  background-color: var(--mid-blue);
+  padding: 2rem 2rem 0;
+  display: flex;
+  height: 30rem;
+  border-radius: 5px;
+  color: var(--blue-text);
+  overflow: hidden;
+  justify-content: space-between;
+  width: 100%;
+}
 .welcome-box .fragment {
   width: 50%;
   overflow: visible;
   white-space: nowrap;
 }
 .welcome-box .fragment .woman {
+  /* height: 80%; */
   width: 100%;
+  object-fit: cover;
+}
+.closed.main-layout .welcome-box .fragment .woman {
+  width: 100%;
+  height: auto;
 }
 .welcome-box .fragment.img-container {
   display: flex;
   align-items: flex-end;
 }
-.welcome-box .fragment.top {
+.closed.main-layout .welcome-box .fragment.top {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   font-size: 1.25rem;
+  padding-bottom: 2rem;
+}
+.welcome-box .fragment.top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
 }
 .welcome-box .fragment.top h3 {
   font-size: 2rem;
@@ -197,12 +226,18 @@ li {
   .row-container {
     flex-direction: column;
   }
+  .closed.main-layout .row-container {
+    flex-direction: column;
+  }
   .welcome-box,
   .analysis {
     width: 100%;
   }
+  .closed.main-layout .welcome-box {
+    width: 100%;
+  }
 }
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
   .analysis {
     grid-template-columns: 1fr;
     height: auto;

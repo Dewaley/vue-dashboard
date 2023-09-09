@@ -22,7 +22,8 @@ const { hamburger } = storeToRefs(store);
 <template>
   <nav>
     <div class="fragments">
-      <Bars3Icon class="icon" @click="toggleHamburger" />
+      <Bars3Icon v-if="hamburger" class="icon" @click="toggleHamburger" />
+      <Bars3Icon v-else class="icon" />
       <form @submit.prevent="" class="big-search">
         <MagnifyingGlassIcon class="icon" />
         <input
