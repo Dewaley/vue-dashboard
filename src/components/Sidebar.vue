@@ -304,6 +304,7 @@ ul a {
   left: 22rem; */
   display: none;
   height: 3rem;
+  cursor: pointer;
 }
 .router-link-exact-active {
   color: var(--bright-text);
@@ -311,6 +312,7 @@ ul a {
 @media screen and (max-width: 768px) {
   .sidebar {
     position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     max-width: 30rem;
@@ -318,6 +320,7 @@ ul a {
   }
   .closed.sidebar {
     max-width: 0rem;
+    display: none;
     transition: max-width 200ms linear;
   }
   .logo {
